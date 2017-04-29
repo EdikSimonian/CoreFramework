@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+
+  coreframework:
+    build: CoreFramework/
+    ports:
+      - "8000:8000"
+    environment:
+      ASPNETCORE_URLS: "http://+:8000"
+    networks:
+      - netowork
+
+  elasticsearch:
+    build: ELK/elasticsearch/
+    ports:
+      - "9200"
+      - "9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      discovery.zen.ping.unicast.hosts: elasticsearch
+      cluster.name: "ES-Cluster"
+    networks:
+      - netowork
+
+  logstash:
+    build: ELK/logstash/
+    volumes:
+      - ./ELK/logstash/pipeline:/usr/share/logstash/pipeline
+    ports:
+      - "5000:5000"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - netowork
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    build: ELK/kibana/
+    ports:
+      - "5601:5601"
+    networks:
+      - netowork
+    depends_on:
+      - elasticsearch
+
+networks:
+  netowork:
+    driver: bridge
