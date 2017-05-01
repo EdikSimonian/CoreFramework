@@ -34,7 +34,7 @@ Add these to your /etc/hosts
 
 ```
 127.0.0.1 example.com
-127.0.0.1 kibana.com
+127.0.0.1 kibana.example.com
 ```
 
 Now you should be able to access your web app using localhost.com and kibana using kibana.localhost.com
