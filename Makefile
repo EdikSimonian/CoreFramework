@@ -4,12 +4,15 @@ help:
 	@echo "Up or Down?"
 
 up:
+	@make -C ./CoreFramework build
 	@docker-compose up -d
 	@docker-compose scale elasticsearch=3
 
 activate:
-	@chmod +x Scripts/activate-xpack.sh
-	@./Scripts/activate-xpack.sh
+	@docker cp Config/license.json coreframework_elasticsearch_1:/license.json
+	@docker cp Scripts/activate-xpack.sh coreframework_elasticsearch_1:/activate-xpack.sh
+	@docker exec -it coreframework_elasticsearch_1 bash /activate-xpack.sh
 
 down:
 	@docker-compose down
+	@rm ./Nginx/conf.d/default.conf
