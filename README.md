@@ -1,3 +1,6 @@
+### Status
+[![Build Status](https://travis-ci.org/EdikSimonian/CoreFramework.svg?branch=develop)](https://travis-ci.org/EdikSimonian/CoreFramework)
+
 # CoreFramework
 
 Complete .Net Core Web application with everything you need to start!
