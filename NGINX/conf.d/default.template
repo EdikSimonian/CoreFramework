@@ -5,6 +5,8 @@ server
 
     location / {
         proxy_pass http://kibana:5601;
+        auth_basic "Restricted";
+    	auth_basic_user_file /etc/nginx/.htpasswd;
     }
 }
 
