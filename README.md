@@ -40,14 +40,28 @@ Add these to your /etc/hosts
 127.0.0.1 kibana.example.com
 ```
 
-Now you should be able to access your web app using localhost.com and kibana using kibana.localhost.com
+Now you should be able to access your web app using example.com and kibana using kibana.example.com
+
+## Credentials 
+
+Username: core
+Password: framework
+
+Create a new .htpasswd to change the default credentials
 
 ## License
 
 This project is licensed under the GPLv3 License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Next
+
+* Testing HAProxy
+* Syncing the .Net performance metrics to ELK
 
 ## Acknowledgments
 
 * .Net Core
 * Docker
 * Elastic
+* Nginx
+* Travis
