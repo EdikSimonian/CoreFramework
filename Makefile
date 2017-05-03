@@ -11,6 +11,10 @@ activate:
 	@docker cp Scripts/activate-xpack.sh coreframework_elasticsearch_1:/activate-xpack.sh
 	@docker exec -it coreframework_elasticsearch_1 bash /activate-xpack.sh
 
+test:
+	@curl --verbose 'http://example.com'
+	@curl --verbose 'http://kibana.example.com'
+
 down:
 	@docker-compose down
 	@rm ./Nginx/conf.d/default.conf
