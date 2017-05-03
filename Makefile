@@ -12,6 +12,7 @@ activate:
 	@docker exec -it coreframework_elasticsearch_1 bash /activate-xpack.sh
 
 test:
+	@sleep 5
 	@curl --verbose 'http://example.com'
 	@curl --verbose 'http://kibana.example.com'
 

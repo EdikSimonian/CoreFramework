@@ -9,7 +9,6 @@ services:
   - docker
 env:
   DOCKER_COMPOSE_VERSION: 1.13.0
-
 before_install:
   - sudo /bin/su -c "echo '127.0.0.1 example.com' >> /etc/hosts"
   - sudo /bin/su -c "echo '127.0.0.1 kibana.example.com' >> /etc/hosts"
