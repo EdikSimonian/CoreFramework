@@ -1,5 +1,3 @@
-PORT =$(shell chmod +x ./Scripts/getESPort.sh && ./Scripts/getESPort.sh)
-
 help: 
 	@echo "Up or Down?"
 
