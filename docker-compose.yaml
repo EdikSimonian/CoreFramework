@@ -48,9 +48,9 @@ services:
       - KIBANA_DOMAIN="kibana.example.com"
       - APP_DOMAIN="example.com"
     volumes:
-      - ./Nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./Nginx/.htpasswd:/etc/nginx/.htpasswd
-      - ./Nginx/conf.d/default.template:/etc/nginx/conf.d/default.template
+      - ./NGINX/nginx.conf:/etc/nginx/nginx.conf
+      - ./NGINX/.htpasswd:/etc/nginx/.htpasswd
+      - ./NGINX/conf.d/default.template:/etc/nginx/conf.d/default.template
     command: /bin/bash -c "envsubst < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
 networks:
