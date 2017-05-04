@@ -12,8 +12,8 @@ activate:
 	@docker exec -it coreframework_elasticsearch_1 bash /activate-xpack.sh
 
 test:
-	@curl --verbose -H 'Host: example.com' 'http://127.0.0.1/'
-	@curl --verbose -H 'Host: kibana.example.com' 'http://127.0.0.1/'
+	@curl --verbose -H 'Host: example.com' 'http://127.0.0.1:80/'
+	@curl --verbose -H 'Host: kibana.example.com' 'http://127.0.0.1:80/'
 
 down:
 	@docker-compose down
