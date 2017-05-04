@@ -1,0 +1,16 @@
+metricbeat.modules:
+- module: nginx
+  metricsets: ["stubstatus"]
+  enabled: true
+  period: 5s
+
+  # Nginx hosts
+  hosts: ["http://127.0.0.1"]
+  server_status_path: "server-status"
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: "nginx"
+  template.name: "metricbeat"
+  template.path: "/etc/metricbeat/metricbeat.template.json"
+  template.overwrite: true

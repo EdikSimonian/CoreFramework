@@ -12,10 +12,18 @@ server
 
 server 
 {
-	listen 80;
+	listen 80 default_server;
 	server_name $APP_DOMAIN;
 
 	location / {
 		proxy_pass http://coreframework:80;
 	}
+
+    location /server-status {
+        stub_status on;
+
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+    }
 }

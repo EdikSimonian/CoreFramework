@@ -37,7 +37,7 @@ services:
       - elasticsearch
 
   nginx:
-    image: nginx
+    build: NGINX/
     ports:
       - "80:80"
     networks:
@@ -51,7 +51,8 @@ services:
       - ./NGINX/nginx.conf:/etc/nginx/nginx.conf
       - ./NGINX/.htpasswd:/etc/nginx/.htpasswd
       - ./NGINX/conf.d/default.template:/etc/nginx/conf.d/default.template
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+      - ./NGINX/metricbeat.yml:/etc/metricbeat/metricbeat.yml
+    command: /bin/bash -c "service metricbeat start && envsubst < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
 networks:
   network:
