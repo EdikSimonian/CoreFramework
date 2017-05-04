@@ -11,6 +11,10 @@ activate:
 	@docker cp Scripts/activate-xpack.sh coreframework_elasticsearch_1:/activate-xpack.sh
 	@docker exec -it coreframework_elasticsearch_1 bash /activate-xpack.sh
 
+ci:
+	@make -C ./CoreFramework build
+	@docker-compose up
+
 test:
 	@/bin/bash ./Scripts/test.sh
 
