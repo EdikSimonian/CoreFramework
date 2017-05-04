@@ -1,7 +1,5 @@
 FROM nginx:latest
 
-USER root
-
 RUN apt-get -qq update
 
 RUN apt-get -qq -y install curl

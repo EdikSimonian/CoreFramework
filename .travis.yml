@@ -4,7 +4,7 @@ sudo: required
 mono: none
 dotnet: 1.0.1
 script:
-  - sysctl -w vm.max_map_count=262144 && make ci
+  - make up && make down
 services:
   - docker
 env:
