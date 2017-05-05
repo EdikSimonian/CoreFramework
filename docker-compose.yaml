@@ -36,24 +36,16 @@ services:
     depends_on:
       - elasticsearch
 
-  nginx:
-    build: NGINX/
+  haproxy:
+    build: HAProxy/
     ports:
       - "80:80"
     networks:
       - network
     depends_on:
       - coreframework
-    environment:
-      - KIBANA_DOMAIN="kibana.example.com"
-      - APP_DOMAIN="example.com"
-    volumes:
-      - ./NGINX/nginx.conf:/etc/nginx/nginx.conf
-      - ./NGINX/.htpasswd:/etc/nginx/.htpasswd
-      - ./NGINX/conf.d/default.template:/etc/nginx/conf.d/default.template
-      - ./NGINX/metricbeat.yml:/etc/metricbeat/metricbeat.yml
-    command: /bin/bash -c "service metricbeat start && envsubst < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-
+      - kibana
+   
 networks:
   network:
     driver: bridge
