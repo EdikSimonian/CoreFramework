@@ -20,3 +20,5 @@ test:
 
 down:
 	@docker-compose down
+	@docker rmi coreframework_haproxy
+	@docker rmi coreframework_coreframework
