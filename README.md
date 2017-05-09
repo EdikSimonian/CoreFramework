@@ -33,21 +33,14 @@ Wait for elasticsearch to come up and then run
 make activate
 ```
 
-Add these to your /etc/hosts
-
-```
-127.0.0.1 example.com
-127.0.0.1 kibana.example.com
-```
-
-Now you should be able to access your web app using example.com and kibana using kibana.example.com
+Now you should be able to access your web app using http://127.0.0.1:80 and kibana using http://127.0.0.1:5601
 
 ## Credentials 
 
 Username: core
 Password: framework
 
-Create a new .htpasswd to change the default credentials
+To change the credentials edit HAProxy/haproxy.cfg
 
 ## License
 
